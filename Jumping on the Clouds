@@ -1,0 +1,26 @@
+// Complete the jumpingOnClouds function below.
+function jumpingOnClouds(c) {
+
+//create a variable that holds the count and the location start
+    let count = 0,
+        i = 0;
+        
+        //while the location is not at the end
+        while(i < c.length-1){
+            //if location +2 jumps is smaller than the cloud length
+            //and count +2 jumps is not equal to 1(thundercloud)
+            if(i+2 <c.length && c[i+2] != 1){
+                //add to the count
+                count++;
+                //jump +2 whenever it's possible
+                i=i+2;
+            }
+            else{
+                //if not, add 1 to the count and to the movement
+                count++;
+                i++;
+            }
+        }
+        return count;
+
+}

@@ -1,0 +1,26 @@
+// Complete the sockMerchant function below.
+function sockMerchant(n, ar) {
+
+//set a new map to scan elements inside array
+let mapSocks = new Map();
+
+//create a new variable that holds the pairs
+let pairs = 0;
+
+//create a loop for each colors inside array
+for(let color of ar){
+    //if the mapSocks has color
+    if(mapSocks.has(color)){
+        //add 1 to the pairs
+        pairs++;
+        //then delete so it doesn't get counted again
+        mapSocks.delete(color)
+        
+        //If the mapSocks doesn't have the color
+    } else {
+        mapSocks.set(color, 1);
+    }
+}
+//return the total pairs
+return pairs;
+}

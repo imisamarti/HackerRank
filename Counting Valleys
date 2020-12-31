@@ -1,0 +1,30 @@
+function countingValleys(steps, path) {
+    //set variables for current level and valleys
+    let currentLevel = 0,
+        valleys = 0;
+    
+    //create a loop that goes through each step of the path
+    for(let steps of path){
+       
+       //create a loop that repeats the if statements until 
+       //there are no more steps in the path
+       for(let i = 0; i < steps.length; i++){
+           //if there is a U add 1 to current level         
+           if(steps[i] === 'U'){
+               currentLevel +=1;
+               
+               //if current level is equal to 0
+               //add to the valley count
+               if(currentLevel == 0){
+                   valleys += 1;
+               }
+               
+            //anything else other than U lower the current level by 1
+           } else{
+               currentLevel -=1;
+           }
+       }
+    }
+    //now return the total number of valleys
+     return valleys;
+}

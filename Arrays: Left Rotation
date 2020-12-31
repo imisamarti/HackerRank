@@ -1,0 +1,11 @@
+// Complete the rotLeft function below.
+function rotLeft(a, d) {
+
+//create a variable that holds the start index of the array
+let indexStart = d % a.length,
+    //create another variable that adds start index in its place
+    start = a.splice(0,indexStart);
+    //push start array
+    a.push(...start);
+    return a;
+}

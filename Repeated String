@@ -1,0 +1,29 @@
+// Complete the repeatedString function below.
+function repeatedString(s, n) {
+
+console.log(s,n)
+//create a variable that hold the count
+//create a variable that count how many As total
+//remainder
+let count = 0,
+    countA = 0,
+    remainder = n % s.length;
+
+//create loop that sets i as the lenght of the string
+//decrease while it's bigger than 0
+for(let i=s.length;i-- > 0;){
+    
+    //if there's a character equal to 'a' inside the string add 1 to total count
+    if(s.charAt(i)== 'a'){
+        ++count;
+        
+        //if i is less than the remainder, count how many "a's" left
+        if(i<remainder)
+        ++countA;
+    }
+}
+
+//return the amount of characters without the remainings of 'a' characters
+return ((n-remainder)/s.length*count) +countA
+
+}

@@ -1,0 +1,30 @@
+// Complete the hourglassSum function below.
+function hourglassSum(arr) {
+    
+    //create the constrains for the hourglass shape
+    let maxX = 3,    // + (arr[0].length % 3)
+        maxY = 3,    // + (arr.length % 3)
+        total = -64;// -64 since the lowest possible value is -63
+    
+    //create hourglass shape with two for loops
+    //begin at y == 0
+    for(let y = 0; y <= maxY; y++){
+        for(let x = 0; x <= maxX; x++){
+            
+            //sum the top of hourglass
+            let sum = arr[y][x] + arr[y][x+1]+ arr[y][x+2];
+            
+            //sum middle of hourglass
+            sum += arr[y+1][x+1];
+            
+            //sum bottom of hourglass
+            sum += arr[y+2][x] + arr[y+2][x+1]+arr[y+2][x+2];
+            
+            //don't store result to keep time complexity down
+            if(total<sum)
+            total=sum;
+        }
+    }
+    //return the total
+    return total;
+}

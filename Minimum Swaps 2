@@ -1,0 +1,31 @@
+// Complete the minimumSwaps function below.
+function minimumSwaps(arr) {
+    
+    //create a variable to hold the minimum swaps
+    let minSwaps = 0;
+
+    //create a loop to go through each element inside array
+    for(var i=0;i<arr.length;i++){
+        //if index+1 is NOT the same as the current index of the array
+        if(i+1 != arr[i]){
+            //make a new variable and store value of index
+            var t=i;
+            //while array of new variable is NOT the same as index+1
+            while (arr[t] != i+1){
+                //add 1 to variable t
+                t++;
+            }
+            
+            //create a temporary variable to hold the new array
+            var temp = arr[t];
+            //make the new array equal to the previous array 
+            arr[t]=arr[i];
+            //make old array equal to temporary
+            arr[i]=temp;
+            //add 1 to the number of minimun swaps
+            minSwaps++;
+        }
+    }
+    //return the number of minimum swaps
+    return minSwaps;
+}

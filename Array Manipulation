@@ -1,0 +1,61 @@
+// Complete the arrayManipulation function below.
+function arrayManipulation(n, queries) {
+    
+    //set a variable to hold the max
+    let max = 0;
+    //set a new array for parameters
+    const params = [];
+    
+    //create a loop that goes through each element inside queries
+    for(let q = 0; q<queries.length; q++){
+        
+        //assign the elements at queries to query one by one
+        const query  = queries[q],
+              qStart = query[0],
+              qEnd   = query[1],
+              qValue = query[2];
+              
+              //inside params array
+              //push the value K at the start of query
+              params.push({
+                  key: qStart,
+                  val: qValue
+              });
+              
+              //push the value K at the end of query
+              params.push({
+                  key: qEnd,
+                  val: -qValue
+              });
+        
+    }
+    
+    //sort parameters by key
+    params.sort((a,b) =>{
+        if(a.key === b.key){
+            return b.val - a.val;
+        }
+        
+        return a.key - b.key;
+    });
+    
+    //create a val to hold the sum
+    let sum = 0;
+    
+    //go through each element in params array
+    for(let i = 0; i<params.length;i++){
+        //assign the index element to param value
+        const param = params[i];
+        //add the value to the sum parameter
+        sum += param.val;
+        
+        //if sum is bigger than the current max
+        // then add value of sum to max
+        if(sum > max){
+            max = sum;
+        }
+    }
+    
+    //return max
+    return max;
+}

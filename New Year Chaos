@@ -1,0 +1,35 @@
+// Complete the minimumBribes function below.
+function minimumBribes(q) {
+    
+    //create array to hold how many bribes, and which is the higher number
+    let bribeCount    = [],
+        higherNumber = 0;
+    
+    //create a loop that goes through elements inside the queue
+    for(let i = 0; i<q.length;i++){
+        //hold the value of current number
+        let val = q[i]
+            bribeCount[val] = 0
+            higherNumber = Math.max(val,higherNumber);
+        
+       //if the current value is smaller than a higher number
+       //incremement the count for all bribes
+        if(val < higherNumber){
+            for(let j = val+1;j<bribeCount.length;j++){
+                bribeCount[j]++
+                
+                //if the bribes are more than 2 print too chaotic
+                if(bribeCount[j]>2){
+                    console.log("Too chaotic")
+                    return;
+                }
+            }
+        }   
+        
+    }
+    
+    //get the total sum of bribes
+    const sum = bribeCount.reduce((a,b)=> a+b,0);
+    console.log(sum);
+    
+}

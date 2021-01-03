@@ -1,0 +1,30 @@
+// Complete the countSwaps function below.
+function countSwaps(a) {
+    
+    //create a variable for counting the swaps
+    let count = 0;
+    
+    //do the bubble sort(sort from smaller to bigger)
+    for (var i = 0; i < a.length; i++) {
+    
+    for (var j = 0; j < a.length - 1; j++) {
+        // Swap adjacent elements if they are in decreasing order
+        if (a[j] > a[j + 1]) {
+            //add 1 to the swap count
+            count++;
+           [a[j], a[j + 1]] =  [a[j + 1],a[j]];
+        }
+    }
+    
+}
+
+    //create variables for first element and second element
+   let firstElement = a[0];
+   let lastElement = a[a.length -1];
+   
+   //result
+   console.log("Array is sorted in " + count + " swaps.");
+   console.log("First Element: " +firstElement);
+   console.log("Last Element: "+ lastElement);
+
+}

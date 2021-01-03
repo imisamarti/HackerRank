@@ -1,0 +1,28 @@
+// Complete the maximumToys function below.
+function maximumToys(prices, k) {
+
+    //create variables for teh count, the sum and sort the array
+    let toyCount = 0;
+    let toySort = prices.sort((a,b) => a-b);
+    let toySum = 0;
+    
+     //Go through each toy in array
+    for(var i = 0; i < toySort.length; i++){
+       
+       //if the toy price is less than the budget price
+       if(toySort[i] < k){
+           //add they toy to the total sum
+           toySum += toySort[i];
+       
+        //if the sum of the elements is less or equal to budget, add 1 to the toyCount
+            if(toySum <= k){
+                toyCount++;     
+            } else{
+                //break to prevent extra iterations
+                break;
+            }
+        }
+    }
+    //return the total count of toys
+    return toyCount;
+}

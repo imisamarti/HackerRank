@@ -1,0 +1,61 @@
+// Complete the countInversions function below.
+function countInversions(arr) {
+    
+    //create a variable to hold the count
+    //then apply mergesort on array
+    let count=0;
+    mergesort(arr)
+
+    //create mergesort function
+    function mergesort(unsortedArray){
+        
+        //include a base case in order to avoid infinite recursion
+        if (unsortedArray.length==1) return unsortedArray;
+        
+        //figure out the middle to cut the array in half
+        let mid= Math.floor(unsortedArray.length/2);
+        
+        //// This is where we will be 
+        //dividing the array into left and right
+        const left= mergesort(unsortedArray.slice(0,mid));
+        const right= mergesort(unsortedArray.slice(mid));
+        
+    //combine the left and right
+     return merge(left,right);
+    }
+    
+    // Merge the two arrays: left and right
+    function merge(left,right){
+        
+        const NewArr=[];
+        let leftIndex=0;
+        let rightIndex=0;
+        
+        // We will concatenate values into the resultArray in order
+        while ((leftIndex <left.length) 
+            && (rightIndex < right.length)){
+                
+            if (left[leftIndex] <= right[rightIndex]){
+                NewArr.push(left[leftIndex]);
+                // move left array cursor
+                leftIndex++ 
+            } else {
+                NewArr.push(right[rightIndex]);
+                // move right array cursor
+                rightIndex++
+                
+                // get the count
+                count=count + (left.length-leftIndex)
+             }
+            }
+                
+        for (let i=leftIndex; i<left.length;i++)
+            {NewArr.push(left[i])}
+        for (let i=rightIndex; i<right.length;i++)
+            {NewArr.push(right[i])}
+        
+    return NewArr
+    }
+    
+    return count;
+}
